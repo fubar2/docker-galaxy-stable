@@ -29,7 +29,7 @@ def create_pg_db(user, password, database, database_path, database_version):
         Initialize PostgreSQL Database, add database user und create the Galaxy Database.
     """
     pg_bin = "/usr/lib/postgresql/%s/bin/" % database_version
-    os.makedirs(database_path)
+    os.makedirs(database_path, exist_ok=True)
     set_pg_permission(database_path)
     # initialize a new postgres database
     subprocess.call("su - postgres -c '%s --auth=trust --encoding UTF8 --pgdata=%s'" % (os.path.join(pg_bin, 'initdb'),
@@ -47,7 +47,7 @@ def create_pg_db(user, password, database, database_path, database_version):
                     """ % (user, password), shell=True)
 
     subprocess.call("su - postgres -c 'createdb -O %s %s'" % (user, database), shell=True)
-    subprocess.call('service postgresql stop', shell=True)
+    ## subprocess.call('service postgresql stop', shell=True)
 
 
 if __name__ == "__main__":
@@ -75,7 +75,7 @@ if __name__ == "__main__":
 
     """
         Initialize the Galaxy Database + adding an Admin user.
-        This database is the default one, created by the Dockerfile. 
+        This database is the default one, created by the Dockerfile.
         The user can set a volume (-v /path/:/export/) to get a persistent database.
     """
     create_pg_db(options.dbuser, options.dbpassword, options.db_name, options.dbpath, options.dbversion)
