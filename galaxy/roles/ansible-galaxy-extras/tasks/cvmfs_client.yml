@@ -67,7 +67,7 @@
 
 # This is required to be able to use Galaxy .len files from Main w/o mods
 - name: Create a symlink from CVMFS to /galaxy/data
-  file: src=/cvmfs/data.galaxyproject.org/byhand dest=/galaxy/data state=link force=yes
+  file: src=/cvmfs/data.galaxyproject.org/byhand dest=/galaxy/data state=link force=yes follow=no
 
 - name: Use tool_data_table_conf.xml from usegalaxy-playbook
   get_url:

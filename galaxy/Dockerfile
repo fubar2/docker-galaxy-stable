@@ -215,16 +215,16 @@ ENV GALAXY_CONFIG_INTEGRATED_TOOL_PANEL_CONFIG $EXPORT_DIR/galaxy-central/integr
 
 USER $GALAXY_USER
 
-RUN git config --global --add safe.directory $GALAXY_ROOT   \
- && cd $GALAXY_ROOT \
- && sh ./scripts/common_startup.sh
-# break for sanity while testing
-RUN sh $GALAXY_ROOT/scripts/firstrun.sh
+#RUN git config --global --add safe.directory $GALAXY_ROOT   \
+ #&& cd $GALAXY_ROOT \
+ #&& sh ./scripts/common_startup.sh - now part of ansible-galaxy-extras
+# firstrun moved to post-startup so postgres is running right
 
 USER root
 
 # cleanup jig
-RUN find $GALAXY_ROOT/ -name '*.pyc' -delete | true \
+RUN git config --global --add safe.directory $GALAXY_ROOT   \
+    && find $GALAXY_ROOT/ -name '*.pyc' -delete | true \
     && find $GALAXY_ROOT -name 'node_modules' -type d -prune -exec rm -rf '{}' + \
     && find /usr/lib/ -name '*.pyc' -delete | true \
     && find /var/log/ -name '*.log' -delete | true \
