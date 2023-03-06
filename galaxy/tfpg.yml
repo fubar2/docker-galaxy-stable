@@ -1,0 +1,57 @@
+---
+# too lazy to rewrite the working installation scripts so just run them at the end
+# takes ~20 minutes to build the server and install the tools, history and workflow.
+# builds a toolfactory dev server remotely.
+
+- hosts: tfpg
+  pre_tasks:
+    - name: Install Dependencies
+      package:
+        name:
+          - 'acl'
+          - 'bzip2'
+          - 'git'
+          - 'unzip'
+          - 'make'
+          - 'python3-psycopg2'
+          -  'tar'
+          - 'virtualenv'
+          - 'libbz2-dev'
+          - 'liblzma-dev'
+          - 'libpq-dev'
+          - 'python3-apt'
+
+    - name: Clone tf configuration ready to overlay on the cloned galaxy
+      become: true
+      become_user: "{{ galaxy_user }}"
+      git:
+        repo: https://github.com/fubar2/galaxy_tf_overlay
+        dest: "{{ galaxy_root }}/galaxy_tf_overlay"
+        clone: yes
+        update: yes
+
+    - name: Copy tf config files into place
+      become: true
+      become_user: root
+      copy:
+        src: "{{ galaxy_root }}/galaxy_tf_overlay/"
+        dest: "{{ galaxy_root }}/"
+        owner: "{{ galaxy_user }}"
+        remote_src: yes
+
+    - name: Executable shell scripts
+      become: true
+      become_user: root
+      shell:
+          cmd: "chmod -R a+x {{ galaxy_root }}/scripts/*.sh"
+      args:
+         executable: /bin/bash
+
+
+  roles:
+    - role: uchida.miniconda
+      become: true
+      become_user: "{{ galaxy_user }}"
+    - role: ansible-galaxy-extras
+      become: true
+      become_user: root

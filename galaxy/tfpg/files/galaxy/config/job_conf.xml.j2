@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<job_conf>
+    <plugins>
+        <plugin id="local" type="runner" load="galaxy.jobs.runners.local:LocalJobRunner" workers="4" />
+    </plugins>
+    <destinations default="localq">
+        <destination id="localq" runner="local"/>
+        <destination id="tfq" runner="local"/>
+    </destinations>
+    <tools>
+        <tool id="toolfactory" destination="tfq" />
+    </tools>
+    <limits>
+        <limit id="tfq" type="destination_total_concurrent_jobs">1</limit>
+    </limits>
+</job_conf>
+<!-- toolfactory jobs install things and test them using galaxy-tool-test.
+Must be one at a time or Bad Things Happen.
+Not surprising given the chicanery involved
+sqlite just does not seem to work very well
+Worth retesting sometime but so far no joy
+-->

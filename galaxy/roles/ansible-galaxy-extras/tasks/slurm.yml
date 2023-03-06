@@ -1,0 +1,93 @@
+- name: Install pip
+  apt:
+    state: "{{ galaxy_extras_apt_package_state }}"
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - python-pip
+  when: galaxy_extras_install_packages
+
+- name: Create munge.service configuration file
+  template: src=munge.service.j2 dest=/etc/systemd/system/munge.service
+  when: galaxy_extras_install_packages
+
+- name: Install munge system package
+  apt: pkg=munge state={{ galaxy_extras_apt_package_state }}
+  when: galaxy_extras_install_packages
+
+- name: Install SLURM system packages
+  apt:
+    state: "{{ galaxy_extras_apt_package_state }}"
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - slurm-llnl
+    - slurm-drmaa-dev
+    - python-psutil
+  when: galaxy_extras_install_packages and ansible_distribution_version < "18.04"
+
+- name: Add custom Galaxy PPA (used for Slurm DRMAA package in Ubuntu 18.04)
+  apt_repository:
+    repo: ppa:natefoo/slurm-drmaa
+    state: present
+    update_cache: yes
+  when: galaxy_extras_install_packages and ansible_distribution_version == "18.04"
+
+- name: Install SLURM system packages for Ubuntu 18.04
+  apt: pkg={{ item }} state={{ galaxy_extras_apt_package_state }}
+  with_items:
+    - slurm-wlm
+    - slurm-drmaa-dev
+    - python-psutil
+  when: galaxy_extras_install_packages and ansible_distribution_version == "18.04"
+
+- name: Install SLURM system packages
+  apt: pkg=slurm-wlm-torque state={{ galaxy_extras_apt_package_state }}
+  when: galaxy_extras_install_packages
+
+- name: Create Munge Key
+  command: /usr/sbin/create-munge-key creates=/etc/munge/munge.key
+
+- name: Setup Munge permissions and folder
+  file: path={{ item }} state=directory owner=root group=root recurse=yes
+  with_items:
+    - /var/run/munge
+    - /var/lib/munge
+    - /var/log/munge
+    - /var/run/munge
+    - /etc/munge
+
+- name: Setup tmp area for slurm.
+  file: path=/tmp/slurm state=directory owner={{ galaxy_user_name }} group={{ galaxy_user_name }}
+
+- name: Create slurm configuration file
+  template: src=configure_slurm.py.j2 dest=/usr/sbin/configure_slurm.py
+
+- name: Check if Galaxy uses eggs or wheels
+  stat:
+    path: "{{ galaxy_server_dir }}/lib/galaxy/dependencies/pinned-requirements.txt"
+  register: requirements_txt
+
+- name: Fetch DRMAA egg for Galaxy
+  shell: "{{ galaxy_venv_dir }}/bin/python {{ galaxy_server_dir }}/scripts/fetch_eggs.py -e drmaa -c {{ galaxy_config_file }}"
+  when: not requirements_txt.stat.exists
+
+# If job_conf.xml is installed before running galaxyprojectdotorg.galaxy, this would already be installed.
+- name: Fetch DRMAA wheel for Galaxy
+  pip:
+    name: "drmaa"
+    extra_args: "--index-url https://wheels.galaxyproject.org/simple/ --extra-index-url https://pypi.python.org/simple"
+    virtualenv: "{{ galaxy_venv_dir }}"
+  environment:
+    PYTHOPATH: null
+    VIRTUAL_ENV: "{{ galaxy_venv_dir }}"
+
+# TODO: Move the following two out of this file since it is no longer SLURM specific.
+- name: "Install Galaxy job conf"
+  template: src=job_conf.xml.j2 dest={{galaxy_job_conf_path}} owner={{ galaxy_user_name }} group={{ galaxy_user_name }}
+  tags: galaxy_extras_job_conf
+
+- name: "Install Galaxy container resolution configuration"
+  template: src=container_resolvers_conf.xml.j2 dest={{galaxy_container_resolvers_conf_path}} owner={{ galaxy_user_name }} group={{ galaxy_user_name }}
+  when: galaxy_extras_config_container_resolution|bool
+  tags: galaxy_extras_job_conf

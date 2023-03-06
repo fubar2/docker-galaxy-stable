@@ -1,0 +1,51 @@
+---
+
+groot: /galaxy-central
+# this sets the installation destination
+REL: "release_23.0"
+GALZIP: "https://github.com/galaxyproject/galaxy/archive/refs/heads/{{ REL }}.zip"
+# Python 3 support
+pip_virtualenv_command: /usr/bin/python3 -m virtualenv # usegalaxy_eu.certbot, usegalaxy_eu.tiaas2, galaxyproject.galaxy
+certbot_virtualenv_package_name: python3-virtualenv    # usegalaxy_eu.certbot
+pip_package: python3-pip                               # geerlingguy.pip
+
+# PostgreSQL
+postgresql_objects_users:
+  - name: "{{ galaxy_user }}"
+postgresql_objects_databases:
+  - name: "galaxydev"
+    owner: "{{ galaxy_user }}"
+
+# PostgreSQL Backups
+postgresql_backup_dir: "{{ groot }}/data/backups"
+postgresql_backup_local_dir: "{{ '~postgres' | expanduser }}/backups"
+
+galaxy_root: "{{ groot }}"
+galaxy_user: galaxy
+galaxy_config_dir: "{{ galaxy_root }}/config"
+miniconda_prefix: "{{ galaxy_root }}/database/dependencies/_conda"
+miniconda_version: 4.7.12
+miniconda_manage_dependencies: false
+
+gcf: environments/tflocal/files/galaxy/config
+
+galaxy_config_templates:
+  - src: "{{ gcf }}/local_tool_conf.xml.j2"
+    dest: "{{ galaxy_config_dir }}/local_tools/local_tool_conf.xml"
+  - src: "{{ gcf }}/job_conf.xml"
+    dest: "{{ galaxy_config_dir }}/job_conf.xml"
+
+# deploy galaxy configuration files
+galaxy_config_files:
+  - src: "{{ gcf }}/install_tf_deps.sh"
+    dest: "{{ galaxy_config_dir }}/install_tf_deps.sh"
+  - src: "{{ gcf }}/galaxy.yml"
+    dest: "{{ galaxy_config_dir }}/galaxy.yml"
+  - src: "{{ gcf }}/toolfactory_fast_test.sh"
+    dest: "{{ galaxy_config_dir }}/install_tf_deps.sh"
+  - src: "{{ gcf }}/tool_sheds_conf.xml"
+    dest: "{{ galaxy_config_dir }}/tool_sheds_conf.xml"
+  - src: "{{ gcf }}/../html/welcome.html"
+    dest: "{{ galaxy_root }}/static/welcome.html"
+
+

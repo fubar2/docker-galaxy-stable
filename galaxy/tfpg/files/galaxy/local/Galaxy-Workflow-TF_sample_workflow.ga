@@ -1,0 +1,738 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "",
+    "format-version": "0.1",
+    "name": "ToolFactory examples generator",
+    "steps": {
+        "0": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "phiX.fasta"
+                }
+            ],
+            "label": "phiX.fasta",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 10,
+                "top": 10
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "e022aaee-86c6-4263-926d-f734b311a35b",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 1,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "bwa-mem-fastq1.fq"
+                }
+            ],
+            "label": "bwa-mem-fastq1.fq",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 10,
+                "top": 130
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "d6f49cb4-ea75-4faa-ace7-928a51c58ba4",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "2": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 2,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "bwa-mem-mt-genome.fa"
+                }
+            ],
+            "label": "bwa-mem-mt-genome.fa",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 10,
+                "top": 250
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "44731926-7b4c-4623-a880-819853a13684",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "3": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 3,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "hello_lisp.txt"
+                }
+            ],
+            "label": "hello_lisp.txt",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 10,
+                "top": 370
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "1aca5883-fd3e-448b-be63-2eacd2cacc2b",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "4": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 4,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "toolfactory.py"
+                }
+            ],
+            "label": "toolfactory.py",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 10,
+                "top": 490
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "b92cf8b4-4bba-4f92-960c-14da67af3a8a",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "5": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 5,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "hello_toolshed_toolshed_archive"
+                }
+            ],
+            "label": "hello_toolshed_toolshed_archive",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 10,
+                "top": 610
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "f9106269-6b20-45e0-b9e5-079ebcd4d32b",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "6": {
+            "annotation": "",
+            "content_id": "toolfactory",
+            "errors": null,
+            "id": 6,
+            "input_connections": {},
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "toolgen",
+                    "type": "input"
+                },
+                {
+                    "name": "untested_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "left": 10,
+                "top": 730
+            },
+            "post_job_actions": {},
+            "tool_id": "toolfactory",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"85e5e6f9a1bf11ed93712b6a00e0d4a9\", \"chromInfo\": \"/home/ross/rossgit/galaxytf/tool-data/shared/ucsc/chrom/?.len\", \"citations\": [], \"cl_prefix\": \"\", \"cl_suffix\": \"\", \"command_override\": \"\", \"cover\": {\"__current_case__\": 0, \"command_override\": \"\", \"commover\": \"no\", \"test_override\": \"\"}, \"deps\": {\"packages\": \"\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"bash\", \"dynScript\": \"echo \\\"You chose $1\\\"\"}}, \"help_text\": \"**What it Does**\", \"install\": null, \"io_param\": {\"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"io\": {\"history_inputs\": [], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"select_out\", \"history_format\": \"txt\", \"history_CL\": \"STDOUT\", \"history_test\": \"diff:0\"}], \"collection_outputs\": []}, \"addparam\": {\"edit_params\": \"yes\", \"additional_parameters\": [{\"__index__\": 0, \"param_name\": \"choose\", \"ap_type\": {\"param_type\": \"selecttext\", \"__current_case__\": 4, \"selectTexts\": [{\"__index__\": 0, \"select_text\": \"one\", \"select_value\": \"won\"}, {\"__index__\": 1, \"select_text\": \"two\", \"select_value\": \"too\"}, {\"__index__\": 2, \"select_text\": \"three\", \"select_value\": \"free\"}]}, \"param_label\": \"Choose\", \"param_help\": \"\", \"param_CL\": \"1\", \"param_CLprefixed\": \"\", \"param_repeat\": false}]}}}, \"make\": {\"makeMode\": {\"__current_case__\": 2, \"citations\": [], \"galaxy_apikey\": \"fakekey\", \"galaxy_url\": \"http://localhost:8080\", \"help_text\": \"**What it Does**\\nEchos your selection\", \"make_Tool\": \"gentestinstall\", \"tool_desc\": \"ToolFactory select demonstration\", \"tool_version\": \"0.01\", \"toolshed_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\"}}, \"run_test\": \"false\", \"script_path\": \"\", \"test_override\": \"\", \"tool_desc\": \"\", \"tool_name\": \"select_test\", \"tool_version\": \"0.01\", \"useremail\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.01",
+            "type": "tool",
+            "uuid": "055c9077-da32-41c9-942a-3a290eba4a6b",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "7": {
+            "annotation": "",
+            "content_id": "toolfactory",
+            "errors": null,
+            "id": 7,
+            "input_connections": {},
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "toolgen",
+                    "type": "input"
+                },
+                {
+                    "name": "untested_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "left": 10,
+                "top": 850
+            },
+            "post_job_actions": {},
+            "tool_id": "toolfactory",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"85e5e6f9a1bf11ed93712b6a00e0d4a9\", \"chromInfo\": \"/home/ross/rossgit/galaxytf/tool-data/shared/ucsc/chrom/?.len\", \"citations\": [], \"cl_prefix\": \"\", \"cl_suffix\": \"\", \"command_override\": \"\", \"cover\": {\"__current_case__\": 0, \"command_override\": \"\", \"commover\": \"no\", \"test_override\": \"\"}, \"deps\": {\"packages\": \"\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"bash\", \"dynScript\": \"# pathetic attempt at a malicious script in Galaxy\\n# it fails because the job execution environment gives write access to few places\\necho \\\"ls -la\\\"\\nls -la\\ncd /\\necho \\\"ls -la after changing to /\\\"\\nls -la\\ntouch \\\"foo_was.here\\\"\\necho \\\"ls -la in root after touch foo_was.here - foo_was_not.here more like it\\\"\\nls -la\\n\"}}, \"help_text\": \"**What it Does**\", \"install\": null, \"io_param\": {\"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"io\": {\"history_inputs\": [], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"evil_script_output\", \"history_format\": \"txt\", \"history_CL\": \"STDOUT\", \"history_test\": \"sim_size:0.05\"}], \"collection_outputs\": []}, \"addparam\": {\"edit_params\": \"yes\", \"additional_parameters\": []}}}, \"make\": {\"makeMode\": {\"__current_case__\": 2, \"citations\": [], \"galaxy_apikey\": \"fakekey\", \"galaxy_url\": \"http://localhost:8080\", \"help_text\": \"**What it Does**\\n\\nFails to write outside the job working directory and lists /etc/passwd inside the biodocker container because, well, you can.\\nAFAIK it's not possible to actually do much real mischief...\", \"make_Tool\": \"gentestinstall\", \"tool_desc\": \"Evil script attempt. \", \"tool_version\": \"0.01\", \"toolshed_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\"}}, \"run_test\": \"false\", \"script_path\": \"\", \"test_override\": \"\", \"tool_desc\": \"\", \"tool_name\": \"evil_script_that_fails\", \"tool_version\": \"0.01\", \"useremail\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.01",
+            "type": "tool",
+            "uuid": "3272bcff-5bd6-433c-a767-adc133800b56",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "8": {
+            "annotation": "",
+            "content_id": "toolfactory",
+            "errors": null,
+            "id": 8,
+            "input_connections": {},
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "toolgen",
+                    "type": "input"
+                },
+                {
+                    "name": "untested_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "left": 10,
+                "top": 970
+            },
+            "post_job_actions": {},
+            "tool_id": "toolfactory",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"85e5e6f9a1bf11ed93712b6a00e0d4a9\", \"chromInfo\": \"/home/ross/rossgit/galaxytf/tool-data/shared/ucsc/chrom/?.len\", \"citations\": [], \"cl_suffix\": \"\", \"command_override\": \"\", \"cover\": {\"__current_case__\": 0, \"command_override\": \"\", \"commover\": \"no\", \"test_override\": \"\"}, \"deps\": {\"packages\": \"\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"bash\", \"dynScript\": \"echo \\\"Hello $1\\\"\"}}, \"help_text\": \"**What it Does**\", \"install\": null, \"io_param\": {\"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"io\": {\"history_inputs\": [], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"Hello_output\", \"history_format\": \"txt\", \"history_CL\": \"STDOUT\", \"history_test\": \"diff:0\"}], \"collection_outputs\": []}, \"addparam\": {\"edit_params\": \"yes\", \"additional_parameters\": [{\"__index__\": 0, \"param_name\": \"say_hello_to\", \"ap_type\": {\"param_type\": \"text\", \"__current_case__\": 0, \"param_value\": \"ToolFactory\"}, \"param_label\": \"Say hello to\", \"param_help\": \"\", \"param_CL\": \"1\", \"param_CLprefixed\": \"\", \"param_repeat\": false}]}}}, \"run_test\": \"false\", \"script_path\": \"\", \"test_override\": \"\", \"tool_desc\": \"\", \"tool_name\": \"hello_toolshed\", \"tool_version\": \"0.01\", \"useremail\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.01",
+            "type": "tool",
+            "uuid": "e9e8358d-01d0-451f-9513-0ce14136039a",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "9": {
+            "annotation": "",
+            "content_id": "toolfactory",
+            "errors": null,
+            "id": 9,
+            "input_connections": {},
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "toolgen",
+                    "type": "input"
+                },
+                {
+                    "name": "untested_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "left": 10,
+                "top": 1090
+            },
+            "post_job_actions": {},
+            "tool_id": "toolfactory",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"85e5e6f9a1bf11ed93712b6a00e0d4a9\", \"chromInfo\": \"/home/ross/rossgit/galaxytf/tool-data/shared/ucsc/chrom/?.len\", \"citations\": [], \"cl_suffix\": \"\", \"command_override\": \"\", \"deps\": {\"packages\": \"r-base\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"Rscript\", \"dynScript\": \"# demo\\nargs = commandArgs(trailingOnly=TRUE)\\nif (length(args)==0) {\\n   n_plots = 3\\n} else {\\n   n_plots = as.integer(args[1]) }\\ndir.create('plots')\\nfor (i in 1:n_plots) {\\n    foo = runif(100)\\n    bar = rnorm(100)\\n    bar = foo + 0.05*bar\\n    pdf(paste('plots/yet',i,\\\"anotherplot.pdf\\\",sep='_'))\\n    plot(foo,bar,main=paste(\\\"Foo by Bar plot #\\\",i),col=\\\"maroon\\\", pch=3,cex=0.6)\\n    dev.off()\\n    foo = data.frame(a=runif(100),b=runif(100),c=runif(100),d=runif(100),e=runif(100),f=runif(100))\\n    bar = as.matrix(foo)\\n    pdf(paste('plots/yet',i,\\\"anotherheatmap.pdf\\\",sep='_'))\\n    heatmap(bar,main='Random Heatmap')\\n    dev.off()\\n}\\n\"}}, \"help_text\": \"**What it Does**\\n\\nRuns R plots\\nNote the supplied test\", \"io_param\": {\"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"io\": {\"history_inputs\": [], \"history_outputs\": [], \"collection_outputs\": [{\"__index__\": 0, \"name\": \"plots\", \"kind\": \"list\", \"label\": \"Plots\", \"discover\": \"__name_and_ext__\"}]}, \"addparam\": {\"edit_params\": \"yes\", \"additional_parameters\": [{\"__index__\": 0, \"param_name\": \"nplot\", \"ap_type\": {\"param_type\": \"text\", \"__current_case__\": 0, \"param_value\": \"3\"}, \"param_label\": \"Number of random plots pairs to draw\", \"param_help\": \"\", \"param_CL\": \"1\", \"param_CLprefixed\": \"\", \"param_repeat\": false}]}}}, \"script_path\": \"\", \"test_override\": \" <tests>\\n    <test>\\n      <param name=\\\"nplot\\\" value=\\\"3\\\" />\\n      <output_collection name=\\\"plots\\\" type=\\\"list\\\">\\n     <element file=\\\"yet_1_anotherheatmap_sample.pdf\\\" name=\\\"yet_1_anotherheatmap\\\" ftype=\\\"pdf\\\" compare=\\\"sim_size\\\" delta_frac=\\\"0.05\\\"/>\\n    <\/output_collection>\\n <\/test>\\n  <\/tests>\\n\", \"tool_desc\": \"Creates some plots in R\", \"tool_name\": \"plotter\", \"tool_version\": \"0.01\", \"useremail\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.01",
+            "type": "tool",
+            "uuid": "38a5093c-8fc3-4d27-9dc6-37e0fc70cc96",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "10": {
+            "annotation": "",
+            "content_id": "toolfactory",
+            "errors": null,
+            "id": 10,
+            "input_connections": {},
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "toolgen",
+                    "type": "input"
+                },
+                {
+                    "name": "untested_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "left": 10,
+                "top": 1210
+            },
+            "post_job_actions": {},
+            "tool_id": "toolfactory",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"85e5e6f9a1bf11ed93712b6a00e0d4a9\", \"chromInfo\": \"/home/ross/rossgit/galaxytf/tool-data/shared/ucsc/chrom/?.len\", \"citations\": [], \"cl_suffix\": \"\", \"command_override\": \"\", \"deps\": {\"packages\": \"swi-prolog\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"swipl -q -g main -s\", \"dynScript\": \"parent(pam,bob).\\nparent(tom,bob).\\nparent(tom,liz).\\nparent(bob,ann).\\nparent(bob,pat).\\nparent(pat,jim).\\n\\nmain :-\\n    parent(X,jim),\\n    format('~a is the parent of jim~n', [X]),\\n    halt.\\n\"}}, \"help_text\": \"**What it Does**\\n\\nProlog script demonstration in the ToolFactory\", \"io_param\": {\"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"io\": {\"history_inputs\": [], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"prolog_result\", \"history_format\": \"txt\", \"history_CL\": \"STDOUT\", \"history_test\": \"diff:0\"}], \"collection_outputs\": []}, \"addparam\": {\"edit_params\": \"yes\", \"additional_parameters\": []}}}, \"script_path\": \"\", \"test_override\": \"\", \"tool_desc\": \"runs a simple prolog script\", \"tool_name\": \"prolog_simple_script\", \"tool_version\": \"2.01\", \"useremail\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.01",
+            "type": "tool",
+            "uuid": "e85f5336-1a5f-44c8-98ab-c669de171ad7",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "11": {
+            "annotation": "",
+            "content_id": "toolfactory",
+            "errors": null,
+            "id": 11,
+            "input_connections": {},
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "toolgen",
+                    "type": "input"
+                },
+                {
+                    "name": "untested_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "left": 10,
+                "top": 1330
+            },
+            "post_job_actions": {},
+            "tool_id": "toolfactory",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"85e5e6f9a1bf11ed93712b6a00e0d4a9\", \"chromInfo\": \"/home/ross/rossgit/galaxytf/tool-data/shared/ucsc/chrom/?.len\", \"citations\": [], \"cl_suffix\": \"\", \"command_override\": \"\", \"deps\": {\"packages\": \"swi-prolog\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"swipl -q -t halt -s\", \"dynScript\": \"\\n:- initialization main.\\n\\n% simple flight-planning system from http://csci.viu.ca/~wesselsd/courses/csci330/code/prolog/\\n% airport(City,Code)\\n% ------------------\\n% matches a city name with an airport code, e.g. \\\"nanaimo\\\" with \\\"ycd\\\"\\nairport('Nanaimo', 'YCD').\\nairport('Vancouver', 'YVR').\\nairport('Victoria', 'YYJ').\\nairport('Calgary', 'YYC').\\nairport('Lethbridge', 'YQL').\\nairport('Kamloops', 'YKA').\\n\\n% flight(DeptAC, ArrAC)\\n% ---------------------\\n% as a fact, states there is a direct flight between the\\n%    departure airport and arrival airport,\\n% under the given flight code (e.g. \\\"AC123\\\")\\nflight('YCD', 'YYC').\\nflight('YCD', 'YVR').\\nflight('YKA', 'YQL').\\nflight('YKA', 'YYC').\\nflight('YQL', 'YKA').\\nflight('YQL', 'YVR').\\nflight('YQL', 'YYC').\\nflight('YYJ', 'YVR').\\nflight('YYJ', 'YYC').\\nflight('YVR', 'YYC').\\nflight('YVR', 'YQL').\\nflight('YVR','YCD').\\nflight('YVR','YYJ').\\nflight('YYC', 'YQL').\\nflight('YYC', 'YKA').\\nflight('YYC','YCD').\\nflight('YYC', 'YYJ').\\nflight('YYC', 'YVR').\\n\\n    % flights(DeptAC, ArrAC)\\n    % ----------------------\\n    % as a rule, finds a sequence (list) of flights connecting\\n    %    the departure airport to the arrival airport\\n\\n    % direct flight\\n    flights(D,A) :- airport(Dname,D), airport(Aname,A),\\n        flight(D,A), format(\\\"Direct flight ~w(~w) to ~w(~w)~n\\\",[Dname,D,Aname,A]).\\n\\n    % one-stop\\n    flights1(D,A) :-\\n       flight(D,I), I \\\\= A, flight(I,A), airport(Dname,D), airport(Iname,I), airport(Aname,A),\\n       format(\\\"Flight ~w(~w) to ~w(~w) via ~w(~w)~n\\\", [Dname,D,Aname,A,Iname,I]).\\n\\n    % two-stop\\n    flights2(D,A) :-\\n       flight(D,I), I \\\\= A, flight(I,J), J \\\\= A, J \\\\= D, flight(J,A), airport(Dname,D),\\n       airport(Aname,A), airport(Iname,I), airport(Jname,J),\\n       format(\\\"Flight ~w(~w) to ~w(~w) via ~w(~w) and ~w(~w)~n\\\", [Dname,D,Aname,A,Iname,I,Jname,J]).\\n\\n    % flights(DeptCity, ArrCity)\\n    % --------------------------\\n    % run a flights query, but starting with the city name (translate to airport codes)\\n    flightsc(DC,AC) :- airport(DC,D), airport(AC,A), flights(D,A).\\n\\nmain :-\\n      flightsc('Victoria','Calgary'), flights1('YYC','YQL'), flights2('YYC','YQL').\\n\\n\"}}, \"help_text\": \"**What it Does**\\nProlog demonstration in the ToolFactory\\nMore complex example of flight routing\\n\\nProlog script demonstration in the ToolFactory\", \"io_param\": {\"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"io\": {\"history_inputs\": [], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"prolog_flight_plan\", \"history_format\": \"txt\", \"history_CL\": \"STDOUT\", \"history_test\": \"diff:0\"}], \"collection_outputs\": []}, \"addparam\": {\"edit_params\": \"yes\", \"additional_parameters\": []}}}, \"script_path\": \"\", \"test_override\": \"\", \"tool_desc\": \"Flight routing prolog\", \"tool_name\": \"prolog_flight_schedule_demo\", \"tool_version\": \"2.01\", \"useremail\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.01",
+            "type": "tool",
+            "uuid": "ea587880-05f5-44db-b780-fcb406c70768",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "12": {
+            "annotation": "",
+            "content_id": "toolfactory",
+            "errors": null,
+            "id": 12,
+            "input_connections": {},
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "toolgen",
+                    "type": "input"
+                },
+                {
+                    "name": "untested_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "left": 10,
+                "top": 1450
+            },
+            "post_job_actions": {},
+            "tool_id": "toolfactory",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"85e5e6f9a1bf11ed93712b6a00e0d4a9\", \"chromInfo\": \"/home/ross/rossgit/galaxytf/tool-data/shared/ucsc/chrom/?.len\", \"citations\": [], \"cl_suffix\": \"\", \"command_override\": \"\", \"deps\": {\"packages\": \"\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"python\", \"dynScript\": \"import argparse\\nparser = argparse.ArgumentParser()\\na = parser.add_argument\\na('--repeat',default=[],action=\\\"append\\\")\\nargs = parser.parse_args()\\ns = ' and '.join(args.repeat)\\nprint(s)\\n\"}}, \"help_text\": \"**What it Does**\\n\\nShows how to allow a parameter to be repeated as often as the user wants\", \"io_param\": {\"ppass\": {\"parampass\": \"argparse\", \"__current_case__\": 0, \"io\": {\"history_inputs\": [], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"rep_out\", \"history_format\": \"txt\", \"history_CL\": \"STDOUT\", \"history_test\": \"diff:0\"}], \"collection_outputs\": []}, \"addparam\": {\"edit_params\": \"yes\", \"additional_parameters\": [{\"__index__\": 0, \"param_name\": \"repeat\", \"ap_type\": {\"param_type\": \"text\", \"__current_case__\": 0, \"param_value\": \"Repeats of this parameter will all appear in the output\"}, \"param_label\": \"Add and edit many variations of this text field and see them in the output\", \"param_help\": \"Add and edit many variations of this text field and see them in the output\", \"param_CL\": \"\", \"param_CLprefixed\": \"\", \"param_repeat\": true}]}}}, \"script_path\": \"\", \"test_override\": \"\", \"tool_desc\": \"Repeating text field demo\", \"tool_name\": \"repeat_demo\", \"tool_version\": \"2.01\", \"useremail\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.01",
+            "type": "tool",
+            "uuid": "cf92a1d0-7841-44f3-974a-8e82d4f9731d",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "13": {
+            "annotation": "",
+            "content_id": "toolfactory",
+            "errors": null,
+            "id": 13,
+            "input_connections": {
+                "io_param|ppass|io|history_inputs_0|input_files": {
+                    "id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "toolgen",
+                    "type": "input"
+                },
+                {
+                    "name": "untested_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "left": 230,
+                "top": 10
+            },
+            "post_job_actions": {},
+            "tool_id": "toolfactory",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"85e5e6f9a1bf11ed93712b6a00e0d4a9\", \"chromInfo\": \"/home/ross/rossgit/galaxytf/tool-data/shared/ucsc/chrom/?.len\", \"citations\": [], \"cl_suffix\": \"\", \"command_override\": \"\", \"deps\": {\"packages\": \"perl\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"perl\", \"dynScript\": \"#!/usr/bin/perl -w\\n\\n# usage : perl toolExample.pl <FASTA file> <output file>\\n\\nopen (IN, \\\"<$ARGV[0]\\\");\\nopen (OUT, \\\">$ARGV[1]\\\");\\nwhile (<IN>) {\\n    chop;\\n    if (m/^>/) {\\n        s/^>//;\\n        if ($. > 1) {\\n            print OUT sprintf(\\\"%.3f\\\", $gc/$length) . \\\"\\\\n\\\";\\n        }\\n        $gc = 0;\\n        $length = 0;\\n    } else {\\n        ++$gc while m/[gc]/ig;\\n        $length += length $_;\\n    }\\n}\\nprint OUT sprintf(\\\"%.3f\\\", $gc/$length) . \\\"\\\\n\\\";\\nclose( IN );\\nclose( OUT );\"}}, \"help_text\": \"**What it Does**\", \"io_param\": {\"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"io\": {\"history_inputs\": [{\"__index__\": 0, \"input_files\": null, \"input_formats\": [\"fasta\"], \"input_label\": \"Input fasta for GC estimate\", \"input_help\": \"\", \"input_CL\": \"1\", \"input_repeat\": false}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"perl_gc_output\", \"history_format\": \"txt\", \"history_CL\": \"2\", \"history_test\": \"diff:0\"}], \"collection_outputs\": []}, \"addparam\": {\"edit_params\": \"yes\", \"additional_parameters\": []}}}, \"script_path\": \"\", \"test_override\": \"\", \"tool_desc\": \"\", \"tool_name\": \"perl_gc_counter\", \"tool_version\": \"0.01\", \"useremail\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.01",
+            "type": "tool",
+            "uuid": "1cbcd83c-1502-4b53-9a09-f12fab2c5e35",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "14": {
+            "annotation": "",
+            "content_id": "toolfactory",
+            "errors": null,
+            "id": 14,
+            "input_connections": {
+                "io_param|ppass|io|history_inputs_0|input_files": {
+                    "id": 2,
+                    "output_name": "output"
+                },
+                "io_param|ppass|io|history_inputs_1|input_files": {
+                    "id": 1,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "toolgen",
+                    "type": "input"
+                },
+                {
+                    "name": "untested_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "left": 230,
+                "top": 130
+            },
+            "post_job_actions": {},
+            "tool_id": "toolfactory",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"85e5e6f9a1bf11ed93712b6a00e0d4a9\", \"chromInfo\": \"/home/ross/rossgit/galaxytf/tool-data/shared/ucsc/chrom/?.len\", \"citations\": [], \"cl_suffix\": \"\", \"command_override\": \"#set $reference_fasta_filename = \\\"localref.fa\\\"\\nln -s \\\"${ref_file}\\\" \\\"${reference_fasta_filename}\\\" ;\\nbwa index -a is \\\"${reference_fasta_filename}\\\" ;\\nbwa mem -t \\\"\\\\${GALAXY_SLOTS:-4}\\\" -v 1 \\\"${reference_fasta_filename}\\\" \\\"${fastq_input1}\\\"  | samtools view -Sb - > temporary_bam_file.bam ;\\nsamtools sort -o \\\"${bwa_test_commover_bam_output}\\\" temporary_bam_file.bam\\n\", \"deps\": {\"packages\": \"bwa=0.7.15, samtools=1.3\", \"usescript\": {\"choosescript\": \"no\", \"__current_case__\": 0, \"dynScript\": \"\", \"scriptrunner\": \"\"}}, \"help_text\": \"**What it Does**\", \"io_param\": {\"ppass\": {\"parampass\": \"argparse\", \"__current_case__\": 0, \"io\": {\"history_inputs\": [{\"__index__\": 0, \"input_files\": null, \"input_formats\": [\"fasta\"], \"input_label\": \"Reference sequence to align reads\", \"input_help\": \"\", \"input_CL\": \"ref_file\", \"input_repeat\": false}, {\"__index__\": 1, \"input_files\": null, \"input_formats\": [\"fastqsanger\"], \"input_label\": \"Fastqsanger file containing reads to be mapped against reference\", \"input_help\": \"\", \"input_CL\": \"fastq_input1\", \"input_repeat\": false}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"bwa_test_commover_bam_output\", \"history_format\": \"bam\", \"history_CL\": \"\", \"history_test\": \"sim_size:0.01\"}], \"collection_outputs\": []}, \"addparam\": {\"edit_params\": \"yes\", \"additional_parameters\": []}}}, \"script_path\": \"\", \"test_override\": \"<tests> <test> <output name=\\\"bwa_test_commover_bam_output\\\" value=\\\"bwa_test_commover_bam_output_sample\\\" compare=\\\"sim_size\\\" delta_frac=\\\"0.1\\\"/> <param name=\\\"ref_file\\\" value=\\\"ref_file_sample\\\"/> <param name=\\\"fastq_input1\\\" value=\\\"fastq_input1_sample\\\"/> <\/test> <\/tests> \", \"tool_desc\": \"testing bwa\", \"tool_name\": \"bwa_test_command_override\", \"tool_version\": \"0.01\", \"useremail\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.01",
+            "type": "tool",
+            "uuid": "024033fd-fef2-463d-9047-ed991c8a7c97",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "15": {
+            "annotation": "",
+            "content_id": "toolfactory",
+            "errors": null,
+            "id": 15,
+            "input_connections": {
+                "io_param|ppass|io|history_inputs_0|input_files": {
+                    "id": 2,
+                    "output_name": "output"
+                },
+                "io_param|ppass|io|history_inputs_1|input_files": {
+                    "id": 1,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "toolgen",
+                    "type": "input"
+                },
+                {
+                    "name": "untested_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "left": 230,
+                "top": 250
+            },
+            "post_job_actions": {},
+            "tool_id": "toolfactory",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"85e5e6f9a1bf11ed93712b6a00e0d4a9\", \"chromInfo\": \"/home/ross/rossgit/galaxytf/tool-data/shared/ucsc/chrom/?.len\", \"citations\": [], \"cl_suffix\": \"\", \"command_override\": \"\", \"deps\": {\"packages\": \"bwa=0.7.15, samtools=1.3\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"bash\", \"dynScript\": \"REFFILE=$1\\nFASTQ=$2\\nBAMOUT=$3\\nrm -f \\\"refalias\\\"\\nln -s \\\"$REFFILE\\\" \\\"refalias\\\"\\nbwa index -a is \\\"refalias\\\"\\nbwa mem -t \\\"2\\\"  -v 1 \\\"refalias\\\" \\\"$FASTQ\\\"  > tempsam\\nsamtools view -Sb tempsam > temporary_bam_file.bam\\nsamtools sort -o \\\"$BAMOUT\\\" temporary_bam_file.bam\\n\"}}, \"help_text\": \"**What it Does**\", \"io_param\": {\"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"io\": {\"history_inputs\": [{\"__index__\": 0, \"input_files\": null, \"input_formats\": [\"fasta\"], \"input_label\": \"Reference sequence to map reads against\", \"input_help\": \"\", \"input_CL\": \"1\", \"input_repeat\": false}, {\"__index__\": 1, \"input_files\": null, \"input_formats\": [\"fastq\"], \"input_label\": \"Reads to map\", \"input_help\": \"\", \"input_CL\": \"2\", \"input_repeat\": false}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"bwa_test_bash_output\", \"history_format\": \"bam\", \"history_CL\": \"3\", \"history_test\": \"sim_size:0.01\"}], \"collection_outputs\": []}, \"addparam\": {\"edit_params\": \"yes\", \"additional_parameters\": []}}}, \"script_path\": \"\", \"test_override\": \"\", \"tool_desc\": \"\", \"tool_name\": \"bwa_test_toolfactory_positional_bash\", \"tool_version\": \"0.01\", \"useremail\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.01",
+            "type": "tool",
+            "uuid": "b4365c75-c6dc-455b-8bd7-4b4ca1b3ecd7",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "16": {
+            "annotation": "",
+            "content_id": "toolfactory",
+            "errors": null,
+            "id": 16,
+            "input_connections": {
+                "io_param|ppass|io|history_inputs_0|input_files": {
+                    "id": 3,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "toolgen",
+                    "type": "input"
+                },
+                {
+                    "name": "untested_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "left": 230,
+                "top": 370
+            },
+            "post_job_actions": {},
+            "tool_id": "toolfactory",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"85e5e6f9a1bf11ed93712b6a00e0d4a9\", \"chromInfo\": \"/home/ross/rossgit/galaxytf/tool-data/shared/ucsc/chrom/?.len\", \"citations\": [], \"cl_suffix\": \"\", \"command_override\": \"\", \"deps\": {\"packages\": \"sbcl\", \"usescript\": {\"choosescript\": \"no\", \"__current_case__\": 0, \"dynScript\": \"\", \"scriptrunner\": \"\"}}, \"help_text\": \"**What it Does**\\nRuns the SBCL interpreter using your lisp script\\n\", \"io_param\": {\"ppass\": {\"parampass\": \"argparse\", \"__current_case__\": 0, \"io\": {\"history_inputs\": [{\"__index__\": 0, \"input_files\": null, \"input_formats\": [\"txt\"], \"input_label\": \"SBCL script (lisp program)\", \"input_help\": \"Script in Lisp for the SBCL interpreter to run\", \"input_CL\": \"script\", \"input_repeat\": false}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"lisp_out\", \"history_format\": \"txt\", \"history_CL\": \"STDOUT\", \"history_test\": \"diff:0\"}], \"collection_outputs\": []}, \"addparam\": {\"edit_params\": \"yes\", \"additional_parameters\": []}}}, \"script_path\": \"\", \"test_override\": \"\", \"tool_desc\": \"Lisp in the ToolFactory!\", \"tool_name\": \"lisp_toolfactory_demo\", \"tool_version\": \"2.01\", \"useremail\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.01",
+            "type": "tool",
+            "uuid": "d6a322e0-ef0c-4cb6-bc31-394cbd4f00b0",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "17": {
+            "annotation": "",
+            "content_id": "toolfactory",
+            "errors": null,
+            "id": 17,
+            "input_connections": {
+                "io_param|ppass|io|history_inputs_0|input_files": {
+                    "id": 4,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "toolgen",
+                    "type": "input"
+                },
+                {
+                    "name": "untested_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "left": 230,
+                "top": 490
+            },
+            "post_job_actions": {},
+            "tool_id": "toolfactory",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"85e5e6f9a1bf11ed93712b6a00e0d4a9\", \"chromInfo\": \"/home/ross/rossgit/galaxytf/tool-data/shared/ucsc/chrom/?.len\", \"citations\": [], \"cl_suffix\": \"\", \"command_override\": \"\", \"deps\": {\"packages\": \"sed\", \"usescript\": {\"choosescript\": \"no\", \"__current_case__\": 0, \"dynScript\": \"\", \"scriptrunner\": \"\"}}, \"help_text\": \"**What it Does**\", \"io_param\": {\"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"io\": {\"history_inputs\": [{\"__index__\": 0, \"input_files\": null, \"input_formats\": [\"txt\"], \"input_label\": \"Input text to be edited\", \"input_help\": \"\", \"input_CL\": \"2\", \"input_repeat\": false}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"sedtest_edited_output\", \"history_format\": \"txt\", \"history_CL\": \"STDOUT\", \"history_test\": \"diff:0\"}], \"collection_outputs\": []}, \"addparam\": {\"edit_params\": \"yes\", \"additional_parameters\": [{\"__index__\": 0, \"param_name\": \"sedstring\", \"ap_type\": {\"param_type\": \"text\", \"__current_case__\": 0, \"param_value\": \"s/a/Abjork!/g\"}, \"param_label\": \"sed edit string - subsitute some text for some other text globally\", \"param_help\": \"\", \"param_CL\": \"1\", \"param_CLprefixed\": \"\", \"param_repeat\": false}]}}}, \"script_path\": \"\", \"test_override\": \"\", \"tool_desc\": \"\", \"tool_name\": \"sedtest_toolshed\", \"tool_version\": \"0.01\", \"useremail\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.01",
+            "type": "tool",
+            "uuid": "84741aa2-9d7e-4f80-b512-30ae42ae1aa5",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "18": {
+            "annotation": "",
+            "content_id": "toolfactory",
+            "errors": null,
+            "id": 18,
+            "input_connections": {
+                "io_param|ppass|io|history_inputs_0|input_files": {
+                    "id": 4,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "toolgen",
+                    "type": "input"
+                },
+                {
+                    "name": "untested_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "left": 230,
+                "top": 610
+            },
+            "post_job_actions": {},
+            "tool_id": "toolfactory",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"85e5e6f9a1bf11ed93712b6a00e0d4a9\", \"chromInfo\": \"/home/ross/rossgit/galaxytf/tool-data/shared/ucsc/chrom/?.len\", \"citations\": [], \"cl_suffix\": \"\", \"command_override\": \"\", \"deps\": {\"packages\": \"\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"bash\", \"dynScript\": \"tac | rev\"}}, \"help_text\": \"**What it Does**\", \"io_param\": {\"ppass\": {\"parampass\": \"0\", \"__current_case__\": 2, \"io\": {\"history_inputs\": [{\"__index__\": 0, \"input_files\": null, \"input_formats\": [\"txt\"], \"input_label\": \"Input text file to be reversed\", \"input_help\": \"\", \"input_CL\": \"STDIN\", \"input_repeat\": false}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"tacrev_reversed_output\", \"history_format\": \"txt\", \"history_CL\": \"STDOUT\", \"history_test\": \"diff:0\"}], \"collection_outputs\": []}}}, \"script_path\": \"\", \"test_override\": \"\", \"tool_desc\": \"\", \"tool_name\": \"tacrev\", \"tool_version\": \"0.01\", \"useremail\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.01",
+            "type": "tool",
+            "uuid": "b84e2f2c-799b-43d9-b05e-695543c184c2",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "19": {
+            "annotation": "",
+            "content_id": "toolfactory",
+            "errors": null,
+            "id": 19,
+            "input_connections": {
+                "io_param|ppass|io|history_inputs_0|input_files": {
+                    "id": 4,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "toolgen",
+                    "type": "input"
+                },
+                {
+                    "name": "untested_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "left": 230,
+                "top": 730
+            },
+            "post_job_actions": {},
+            "tool_id": "toolfactory",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"85e5e6f9a1bf11ed93712b6a00e0d4a9\", \"chromInfo\": \"/home/ross/rossgit/galaxytf/tool-data/shared/ucsc/chrom/?.len\", \"citations\": [], \"cl_suffix\": \"\", \"command_override\": \"\", \"deps\": {\"packages\": \"python\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"python\", \"dynScript\": \"## reverse order of text by row\\n## ToolFactory demonstration\\n## positional parameters\\nimport sys\\ninp = sys.argv[1]\\noutp = sys.argv[2]\\ni = open(inp,'r').readlines()\\no = open(outp,'w')\\nfor row in i:\\n  rs = row.rstrip()\\n  rs = list(rs)\\n  rs.reverse()\\n  o.write(''.join(rs))\\n  o.write('\\\\n')\\no.close()\"}}, \"help_text\": \"**What it Does**\", \"io_param\": {\"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"io\": {\"history_inputs\": [{\"__index__\": 0, \"input_files\": null, \"input_formats\": [\"txt\"], \"input_label\": \"Input text file to be reversed\", \"input_help\": \"\", \"input_CL\": \"1\", \"input_repeat\": false}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"pyrev_positionalparse_output\", \"history_format\": \"txt\", \"history_CL\": \"2\", \"history_test\": \"diff:0\"}], \"collection_outputs\": []}, \"addparam\": {\"edit_params\": \"yes\", \"additional_parameters\": []}}}, \"script_path\": \"\", \"test_override\": \"\", \"tool_desc\": \"\", \"tool_name\": \"pyrev_pos_test\", \"tool_version\": \"0.01\", \"useremail\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.01",
+            "type": "tool",
+            "uuid": "1f250557-18cb-4364-a0f4-5e3e0004743e",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "20": {
+            "annotation": "",
+            "content_id": "toolfactory",
+            "errors": null,
+            "id": 20,
+            "input_connections": {
+                "io_param|ppass|io|history_inputs_0|input_files": {
+                    "id": 4,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "toolgen",
+                    "type": "input"
+                },
+                {
+                    "name": "untested_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "left": 230,
+                "top": 850
+            },
+            "post_job_actions": {},
+            "tool_id": "toolfactory",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"85e5e6f9a1bf11ed93712b6a00e0d4a9\", \"chromInfo\": \"/home/ross/rossgit/galaxytf/tool-data/shared/ucsc/chrom/?.len\", \"citations\": [], \"cl_suffix\": \"\", \"command_override\": \"\", \"deps\": {\"packages\": \"python\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"python\", \"dynScript\": \"# reverse order of text by row\\nimport argparse\\nparser = argparse.ArgumentParser()\\na = parser.add_argument\\na('--infile',default='')\\na('--pyrevargparse_outfile',default=None)\\nargs = parser.parse_args()\\ninp = args.infile\\noutp = args.pyrevargparse_outfile\\ni = open(inp,'r').readlines()\\no = open(outp,'w')\\nfor row in i:\\n  rs = row.rstrip()\\n  rs = list(rs)\\n  rs.reverse()\\n  o.write(''.join(rs))\\n  o.write('\\\\n')\\no.close()\"}}, \"help_text\": \"**What it Does**\", \"io_param\": {\"ppass\": {\"parampass\": \"argparse\", \"__current_case__\": 0, \"io\": {\"history_inputs\": [{\"__index__\": 0, \"input_files\": null, \"input_formats\": [\"txt\"], \"input_label\": \"input file to be reversed\", \"input_help\": \"\", \"input_CL\": \"infile\", \"input_repeat\": false}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"pyrevargparse_outfile\", \"history_format\": \"txt\", \"history_CL\": \"pyrevargparse_outfile\", \"history_test\": \"diff:0\"}], \"collection_outputs\": []}, \"addparam\": {\"edit_params\": \"yes\", \"additional_parameters\": []}}}, \"script_path\": \"\", \"test_override\": \"\", \"tool_desc\": \"\", \"tool_name\": \"pyrev_argparse_test\", \"tool_version\": \"0.01\", \"useremail\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.01",
+            "type": "tool",
+            "uuid": "d95667fe-429c-4d8e-bc6d-b893e0c87419",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "21": {
+            "annotation": "",
+            "content_id": "toolfactory",
+            "errors": null,
+            "id": 21,
+            "input_connections": {
+                "io_param|ppass|io|history_inputs_0|input_files": {
+                    "id": 5,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "toolgen",
+                    "type": "input"
+                },
+                {
+                    "name": "untested_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "left": 230,
+                "top": 970
+            },
+            "post_job_actions": {},
+            "tool_id": "toolfactory",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"85e5e6f9a1bf11ed93712b6a00e0d4a9\", \"chromInfo\": \"/home/ross/rossgit/galaxytf/tool-data/shared/ucsc/chrom/?.len\", \"citations\": [], \"cl_suffix\": \"\", \"command_override\": \"\", \"deps\": {\"packages\": \"planemo=0.75.3\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"bash\", \"dynScript\": \"cp $1 foo.tar \\ntar -xvf foo.tar\\nTOOLNAME=`find . -name \\\"*.xml\\\"`\\necho \\\"$$$$$TOOLNAME = $TOOLNAME\\\" > $2\\nplanemo lint $TOOLNAME >> $2\"}}, \"help_text\": \"**What it Does**\", \"io_param\": {\"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"io\": {\"history_inputs\": [{\"__index__\": 0, \"input_files\": null, \"input_formats\": [\"tgz\"], \"input_label\": \"Toolshed archive to be linted\", \"input_help\": \"\", \"input_CL\": \"1\", \"input_repeat\": false}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"lint_output\", \"history_format\": \"txt\", \"history_CL\": \"2\", \"history_test\": \"diff:5\"}], \"collection_outputs\": []}, \"addparam\": {\"edit_params\": \"yes\", \"additional_parameters\": []}}}, \"script_path\": \"\", \"test_override\": \"\", \"tool_desc\": \"\", \"tool_name\": \"planemo_lint\", \"tool_version\": \"0.01\", \"useremail\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.01",
+            "type": "tool",
+            "uuid": "e385a968-9547-498b-aff4-eddb34f37d51",
+            "when": null,
+            "workflow_outputs": []
+        }
+    },
+    "tags": [],
+    "uuid": "b0aeb922-0728-4e73-863c-d8fc398ad885",
+    "version": 0
+}

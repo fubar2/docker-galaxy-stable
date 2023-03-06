@@ -1,0 +1,80 @@
+
+- include: galaxy_root.yml
+  when: galaxy_extras_config_galaxy_root
+  tags:
+   - galaxy
+
+- name: Create directory for "galaxy_config_dir"
+  file: path="{{ galaxy_config_dir }}" state=directory
+
+- include: galaxy_metrics.yml
+  when: galaxy_extras_config_galaxy_root
+  tags:
+   - metrics
+
+- include: galaxy_extra_dependencies.yml
+  when: galaxy_extras_config_galaxy_extra_dependencies
+  tags:
+   - extra_dependencies
+
+
+- include: nginx.yml
+  when: galaxy_extras_config_nginx
+  tags:
+   - nginx_config
+   - nginx
+
+- include: proftpd.yml
+  when: galaxy_extras_config_proftpd
+  tags:
+   - proftpd
+
+- include: slurm.yml
+  when: galaxy_extras_config_slurm
+  tags:
+   - slurm
+
+- include: pbs.yml
+  when: galaxy_extras_config_pbs
+  tags:
+   - pbs
+
+- include: k8s.yml
+  when: galaxy_extras_config_k8s_jobs
+  tags:
+   - k8s
+
+- include: cvmfs_client.yml
+  when: galaxy_extras_config_cvmfs
+  tags:
+   - cvmfs
+
+- include: supervisor.yml
+  when: galaxy_extras_config_supervisor
+  tags:
+   - supervisor
+
+- include: ie_proxy.yml
+  when: galaxy_extras_config_ie_proxy
+  tags:
+   - ie
+
+- include: galaxy_scripts.yml
+  when: galaxy_extras_config_scripts
+  tags:
+   - scripts
+
+- include: rabbitmq.yml
+  when: galaxy_extras_config_rabbitmq
+  tags:
+   - rabbitmq
+
+- include: startup.yml
+  when: galaxy_extras_config_startup
+  tags:
+   - startup
+
+- include: client.yml
+  when: galaxy_extras_config_startup
+  tags:
+   - client
