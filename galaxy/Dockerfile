@@ -98,12 +98,13 @@ RUN apt-get -qq update && apt-get install --no-install-recommends -y locales apt
    && locale-gen en_US.UTF-8 && dpkg-reconfigure locales \
    && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - \
    && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
+   && add-apt-repository -y ppa:ansible/ansible \
    && sudo add-apt-repository ppa:natefoo/slurm-drmaa \
    && apt-get update -qq \
    # && apt-get install nginx-extras nginx-common --no-install-recommends -y \
    && apt-get install -y postgresql-14 \
    && apt-get install docker-ce-cli --no-install-recommends -y \
-   && apt-get install cron -y \
+   && apt-get install cron supervisor -y \
    && apt-get install slurm-client slurmd slurmctld slurm-drmaa1 --no-install-recommends -y \
    && ln -s /usr/lib/slurm-drmaa/lib/libdrmaa.so.1 /usr/lib/slurm-drmaa/lib/libdrmaa.so \
    && apt-get install proftpd proftpd-mod-pgsql --no-install-recommends -y \
@@ -112,7 +113,7 @@ RUN apt-get -qq update && apt-get install --no-install-recommends -y locales apt
    && apt-get install git --no-install-recommends -y \
    && apt-get install gridengine-common gridengine-drmaa1.0 --no-install-recommends -y \
    && apt-get install rabbitmq-server --no-install-recommends -y \
-   && apt-get install --no-install-recommends -y libswitch-perl supervisor \
+   && apt-get install --no-install-recommends -y libswitch-perl \
    && apt-get purge -y software-properties-common apt-transport-https   \
    && apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && rm -rf ~/.cache/ \
    && mkdir -p /etc/supervisor/conf.d/ /var/log/supervisor/ \
@@ -161,7 +162,7 @@ ADD roles/ /ansible/roles
 ADD tfpg.yml /ansible/tfpg.yml
 ADD tfpg/ /ansible/tfpg/
 # use https://github.com/krallin/tini/ as tiny but valid init and PID 1
-ADD https://github.com/krallin/tini/releases/download/v0.18.0/tini /sbin/tini
+ADD https://github.com/krallin/tini/releases/download/v0.19.0/tini /sbin/tini
 
 
 RUN chmod +x /sbin/tini \
@@ -207,20 +208,12 @@ RUN chmod +x /usr/bin/install-tools /usr/bin/install-biojs  /usr/bin/startup \
     && chmod a+x /usr/local/bin/check_database.py \
     && chmod +x $GALAXY_ROOT/run.sh \
     && chown -R galaxy:galaxy $GALAXY_ROOT/local_tools $GALAXY_ROOT/local $GALAXY_VIRTUAL_ENV \
-    && cp $GALAXY_ROOT/config/tool_data_table_conf.xml.sample /etc/galaxy/tool_data_table_conf.xml
+    && cp $GALAXY_ROOT/config/tool_data_table_conf.xml.sample /etc/galaxy/tool_data_table_conf.xml \
+    && git config --global --add safe.directory $GALAXY_ROOT
 
 # This needs to happen here and not above, otherwise the Galaxy start
 # (without running the startup.sh script) will crash because integrated_tool_panel.xml could not be found.
 ENV GALAXY_CONFIG_INTEGRATED_TOOL_PANEL_CONFIG $EXPORT_DIR/galaxy-central/integrated_tool_panel.xml
-
-USER $GALAXY_USER
-
-#RUN git config --global --add safe.directory $GALAXY_ROOT   \
- #&& cd $GALAXY_ROOT \
- #&& sh ./scripts/common_startup.sh - now part of ansible-galaxy-extras
-# firstrun moved to post-startup so postgres is running right
-
-USER root
 
 # cleanup jig
 RUN git config --global --add safe.directory $GALAXY_ROOT   \
