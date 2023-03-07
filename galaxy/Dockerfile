@@ -129,13 +129,17 @@ RUN mkdir -p /var/cache/apt/archives/partial \
     && wget https://github.com/galaxyproject/galaxy/archive/refs/heads/$GALAXY_RELEASE.zip \
     && unzip $GALAXY_RELEASE.zip \
     && mv  galaxy-$GALAXY_RELEASE $GALAXY_ROOT \
+    && cp $GALAXY_ROOT/config/galaxy.yml.sample /etc/galaxy/galaxy.yml \
+    && PATH=$GALAXY_CONDA_PREFIX/bin/:$PATH \
     && python3 -m venv $GALAXY_VIRTUAL_ENV \
-    && PATH=$GALAXY_CONDA_PREFIX/bin/:$PATH && python3 -m venv $GALAXY_VIRTUAL_ENV \
     && chown -R $GALAXY_USER:$GALAXY_USER $GALAXY_VIRTUAL_ENV \
     && chown -R $GALAXY_USER:$GALAXY_USER $GALAXY_ROOT \
     # Setup Galaxy configuration files.
     && mkdir -p $GALAXY_CONFIG_DIR $GALAXY_CONFIG_DIR/web \
     && chown -R $GALAXY_USER:$GALAXY_USER $GALAXY_CONFIG_DIR \
+    && . $GALAXY_VIRTUAL_ENV/bin/activate \
+    && cd $GALAXY_ROOT \
+    && sh scripts/common_startup.sh \
     && rm -rf /tmp/* /root/.cache/ /var/cache/* $GALAXY_ROOT/client/node_modules/ $GALAXY_VIRTUAL_ENV/src/ /home/galaxy/.cache/ /home/galaxy/.npm \
     && su $GALAXY_USER -c "cp $GALAXY_ROOT/config/galaxy.yml.sample $GALAXY_CONFIG_FILE" \
     && mkdir -p /etc/galaxy \
@@ -174,7 +178,7 @@ RUN chmod +x /sbin/tini \
     && chown $GALAXY_USER:$GALAXY_USER $EXPORT_DIR/tool_deps \
     && apt update -qq && apt install -y ansible g++ make python3-pkg-resources unzip tar gpg dirmngr\
     && . $GALAXY_VIRTUAL_ENV/bin/activate \
-    && pip install WeasyPrint wheel \
+    && pip install WeasyPrint wheel  \
     && pip install -U bioblend ephemeris \
     # see if apt works 'cos this don't :( && /usr/bin/ansible-playbook /ansible/postgresql_provision.yml \
     && . $GALAXY_VIRTUAL_ENV/bin/activate \
