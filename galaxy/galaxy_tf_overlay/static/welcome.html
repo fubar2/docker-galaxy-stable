@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/style/base.css" type="text/css" />
+</head>
+<body style="margin: 0">
+
+    <div class="jumbotron">
+        <div class="container">
+            <table><tr><td>
+            <h4>This is a <strong>ToolFactory Development Galaxy server</strong></h4></br>
+            Please do not expose on the public internet. None of the normal public security layers have been added. This is a persistent but throwaway development Galaxy instance using the sqlite default clone.
+            <ul>
+                <li><a href="https://github.com/fubar2/toolfactory/blob/master/README.md" target="_blank">ToolFactory README</a></br></li>
+                <li><a href="https://drive.google.com/file/d/1xpkcVGQ0jRdG78Kt-qLwqeFpE3RnSRsK/view?usp=sharing" target="_blank" >Hello ToolFactory video demonstration</a> </li>
+            </ul>
+            <font size="5" color="darkblue">The ToolFactory uses ordinary Galaxy forms to generate real Galaxy tools.</font></br>
+            Complicated tools need a skilled developer using the recommended software. Simple tools can be very useful when you need them, and most simple script based tools can be created by capable developers who have
+            not yet acquired the specialised skills, using this special Galaxy server. It generates new tools, from existing scripts of any kind, by filling in a Galaxy form. </br>
+            <strong>Note: the ToolFactory is a terrible way to get a script working properly!</strong>. Get it working in a shell, with small test data samples on your local machine first.
+            Those working test files are needed in your history. They become example inputs when you are completing the new tool ToolFactory form. They also become tool test data in the generated Toolshed ready archive file.</br>
+            <strong>Dysfunctional, broken scripts make dysfunctional broken tools</strong> so only start a new tool when the new script works correctly on your command line with small test data</br>
+            </br> <font size="5" color="darkblue">The preinstalled examples show some of the ways that different tool patterns can be created.</font></br>
+            The ToolFactory can turn any <strong>working script</strong> into an ordinary, shareable Galaxy tool and Toolshed ready archive.
+            Examples include (trivial) scripts for diverse interpreters including Lisp, Prolog, Bash, Python and R. Any conda dependency can be run and a command line constructed, or entered as an over-ride string, as in the BWA examples<br/>
+            For any generated tool in the history, the ToolFactory form can be recreated as it was. The form will be set up, ready for you to change things to create tools you could use. Change the tool id to create a new tool from one of the existing ones.
+            Generated tools appear on the local tool menu - refresh your browser to see them after the ToolFactory job finishes.
+             </br>
+            <font size="5" color="darkblue">There is an installed workflow that will install all the ToolFactory examples</font></br>
+            Assign the input files from the initial history to correctly match the form data name labels or it won't work! </br>
+            Galaxy's UI is not ideal for building tools with dozens of parameters and dozens of files. Much better to build complicated tools in the usual manual way, if you have those skills. </br>
+            Until you <a href="https://training.galaxy.lazarus.name/training-material/topics/dev/tutorials/tool-from-scratch/tutorial.html"> do the training</a>, the
+            ToolFactory may be handy for creating useful Galaxy tools from your own working scripts. </br>
+            Scripts can use any Conda dependencies, such as BWA/samtools examples, and the Lisp, Prolog and bash interpreter examples.</br>
+            </br>
+             <font size="3" color="darkblue">Ideally with just a handful of i/o files and parameters. Building complicated tools requires a skilled developer and the conventional infrastructure.</font></br>
+        </td></tr>
+        </table>
+        </div>
+    </div>
+    </br>
+    <p class="lead" align="center">
+            <a target="_blank" href="https://wiki.galaxyproject.org/Admin/Config" class="btn btn-primary btn-lg">Configuring Galaxy »</a>
+            <a target="_blank" href="https://wiki.galaxyproject.org/Admin/Tools/AddToolFromToolShedTutorial" class="btn btn-primary btn-lg">Installing Tools »</a>
+            <a target="_parent" href="/tours/core.galaxy_ui" class="btn btn-primary btn-lg">Guided Tour »</a>
+        <p class="lead">
+         </p>
+
+        <footer>
+            <a target="_blank" class="reference" href="http://galaxyproject.org/">
+            Galaxy</a> is an open platform for supporting data intensive
+            research. Galaxy is developed by <a target="_blank" class="reference" href="http://wiki.galaxyproject.org/GalaxyTeam">The Galaxy Team</a>
+            with the support of  <a target="_blank" class="reference" href="https://github.com/galaxyproject/galaxy/blob/dev/CONTRIBUTORS.md">many contributors</a>.
+            The Galaxy Docker project is supported by the University of Freiburg, part of de.NBI</br>
+            The <a target="_blank" class="reference" href="http://galaxyproject.org/">Galaxy Project</a>
+            is supported in part by <a target="_blank" class="reference" href="http://www.genome.gov">NHGRI</a>,
+            <a target="_blank" class="reference" href="http://www.nsf.gov">NSF</a>,
+            <a target="_blank" class="reference" href="http://www.huck.psu.edu">The Huck Institutes of the Life Sciences</a>,
+            <a target="_blank" class="reference" href="http://www.ics.psu.edu">The Institute for CyberScience at Penn State</a>,
+            and <a target="_blank" class="reference" href="http://www.jhu.edu/">Johns Hopkins University</a>.
+
+        </footer>
+
+    </div>
+
+</body>
+</html>
+

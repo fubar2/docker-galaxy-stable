@@ -1,0 +1,53 @@
+<tool name="tacrev" id="tacrev" version="0.01">
+  <!--Source in git at: https://github.com/fubar2/galaxy-->
+  <!--Created by toolfactory@galaxy.org at 05/02/2023 19:38:16 using the Galaxy Tool Factory.-->
+  <description></description>
+  <requirements/>
+  <stdio>
+    <exit_code range="1:" level="fatal"/>
+  </stdio>
+  <version_command><![CDATA[echo "0.01"]]></version_command>
+  <command><![CDATA[bash
+$runme
+<
+$Input_text_file_to_be_reversed
+>
+$tacrev_reversed_output]]></command>
+  <configfiles>
+    <configfile name="runme"><![CDATA[#raw
+
+tac | rev
+
+#end raw]]></configfile>
+  </configfiles>
+  <inputs>
+    <param name="Input_text_file_to_be_reversed" type="data" optional="false" label="Input text file to be reversed" help="" format="txt" multiple="false"/>
+  </inputs>
+  <outputs>
+    <data name="tacrev_reversed_output" format="txt" hidden="false"/>
+  </outputs>
+  <tests>
+    <test>
+      <param name="Input_text_file_to_be_reversed" value="Input_text_file_to_be_reversed_sample"/>
+      <output name="tacrev_reversed_output" value="tacrev_reversed_output_sample"/>
+    </test>
+  </tests>
+  <help><![CDATA[
+
+**What it Does**
+
+ 
+
+------
+
+
+Script::
+
+    tac | rev
+
+]]></help>
+  <citations>
+    <citation type="doi">10.1093/bioinformatics/bts573</citation>
+  </citations>
+</tool>
+
