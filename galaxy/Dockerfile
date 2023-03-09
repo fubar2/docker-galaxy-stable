@@ -125,6 +125,8 @@ RUN apt-get -qq update && apt-get install --no-install-recommends -y locales apt
   && rm -rf /tmp/* /root/.cache/ /var/cache/* $GALAXY_ROOT/client/node_modules/ $GALAXY_VIRTUAL_ENV/src/ /home/galaxy/.cache/ /home/galaxy/.npm/
 
 RUN mkdir -p /var/cache/apt/archives/partial \
+    && mkdir -p /etc/galaxy \
+    && chown -R galaxy:galaxy /etc/galaxy \
     && apt update && apt install -y python3-venv unzip wget  \
     && wget https://github.com/galaxyproject/galaxy/archive/refs/heads/$GALAXY_RELEASE.zip \
     && unzip $GALAXY_RELEASE.zip \
@@ -132,6 +134,7 @@ RUN mkdir -p /var/cache/apt/archives/partial \
     && cp $GALAXY_ROOT/config/galaxy.yml.sample /etc/galaxy/galaxy.yml \
     && PATH=$GALAXY_CONDA_PREFIX/bin/:$PATH \
     && python3 -m venv $GALAXY_VIRTUAL_ENV \
+    && . $GALAXY_VIRTUAL_ENV/bin/activate \
     && chown -R $GALAXY_USER:$GALAXY_USER $GALAXY_VIRTUAL_ENV \
     && chown -R $GALAXY_USER:$GALAXY_USER $GALAXY_ROOT \
     # Setup Galaxy configuration files.
@@ -139,11 +142,9 @@ RUN mkdir -p /var/cache/apt/archives/partial \
     && chown -R $GALAXY_USER:$GALAXY_USER $GALAXY_CONFIG_DIR \
     && . $GALAXY_VIRTUAL_ENV/bin/activate \
     && cd $GALAXY_ROOT \
-    && sh scripts/common_startup.sh \
+    #&& sh scripts/common_startup.sh \
     && rm -rf /tmp/* /root/.cache/ /var/cache/* $GALAXY_ROOT/client/node_modules/ $GALAXY_VIRTUAL_ENV/src/ /home/galaxy/.cache/ /home/galaxy/.npm \
-    && su $GALAXY_USER -c "cp $GALAXY_ROOT/config/galaxy.yml.sample $GALAXY_CONFIG_FILE" \
-    && mkdir -p /etc/galaxy \
-    && chown -R galaxy:galaxy /etc/galaxy \
+
     # cleanup dance
     && find $GALAXY_ROOT -name '*.pyc' -delete | true \
     && find /usr/lib/ -name '*.pyc' -delete | true \
@@ -200,6 +201,9 @@ RUN chmod +x /sbin/tini \
 
 
 ADD startuptf.sh /usr/bin/startup
+ADD export_user_files.py /usr/local/bin/export_user_files.py
+ADD configure_slurm.py  /usr/local/bin/configure_slurm.py
+ADD galaxy_dir_sync.py  /usr/local/bin/galaxy_dir_sync.py
 # Script that enables easier downstream installation of tools (e.g. for different Galaxy Docker flavours)
 ADD install_tools_wrapper.sh /usr/bin/install-tools
 # script to install BioJS visualizations

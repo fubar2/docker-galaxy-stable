@@ -3,10 +3,8 @@
 # This script checks if the database is connected by querying an user
 
 import sys
-import os
-galroot = os.environ.get('GALAXY_ROOT','/galaxy-central')
-sys.path.insert(1,galroot)
-sys.path.insert(1,'%s/lib' % galroot)
+sys.path.insert(1,'/galaxy-central')
+sys.path.insert(1,'/galaxy-central/lib')
 
 from galaxy.model import User
 from galaxy.model.mapping import init
@@ -23,5 +21,5 @@ if __name__ == "__main__":
     security_agent = mapping.security_agent
 
     # Just query something
-    query = sa_session.query(User)
+    query = sa_session.query(User).filter_by(email="admin@galaxy.org")
     query.count()

@@ -23,7 +23,7 @@ galaxy_venv_dir: /galaxy_venv # used in the galaxyproject.galaxy playbook. Sure 
 galaxy_config_file: /etc/galaxy/galaxy.yml
 galaxy_manage_database: false
 galaxy_gravity_state_dir: "{{ groot }}/database/gravity"
-
+galaxy_additional_venv_packages: [gravity==0.36.1]
 # this sets the installation destination
 REL: "release_23.0"
 GALZIP: "https://github.com/galaxyproject/galaxy/archive/refs/heads/{{ REL }}.zip"
