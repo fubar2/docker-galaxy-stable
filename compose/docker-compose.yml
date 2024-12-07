@@ -61,19 +61,19 @@ services:
   # The proxy server. All web-traffic is going through here, so we can
   # offload static file serving
   # (https://docs.galaxyproject.org/en/master/admin/production.html#using-a-proxy-server)
-  nginx:
-    image: ${DOCKER_REGISTRY:-quay.io}/${DOCKER_REGISTRY_USERNAME:-bgruening}/galaxy-nginx:${IMAGE_TAG:-latest}
-    build: galaxy-nginx
-    ports:
-      - 80:80
-    volumes:
-      - ${EXPORT_DIR:-./export}/nginx:/config:ro
-      - ${EXPORT_DIR:-./export}/galaxy/static:/export/galaxy/static:ro
-      - ${EXPORT_DIR:-./export}/galaxy/config/plugins:/galaxy/config/plugins:ro
-    depends_on:
-      - galaxy-server
-    networks:
-      - galaxy
+#  nginx:
+#    image: ${DOCKER_REGISTRY:-quay.io}/${DOCKER_REGISTRY_USERNAME:-bgruening}/galaxy-nginx:${IMAGE_TAG:-latest}
+#    build: galaxy-nginx
+#    ports:
+#      - 8080:8080
+#    volumes:
+#      - ${EXPORT_DIR:-./export}/nginx:/config:ro
+#      - ${EXPORT_DIR:-./export}/galaxy/static:/export/galaxy/static:ro
+#      - ${EXPORT_DIR:-./export}/galaxy/config/plugins:/galaxy/config/plugins:ro
+#    depends_on:
+#      - galaxy-server
+#    networks:
+#      - galaxy
   # Message queue for better performance
   rabbitmq:
     image: rabbitmq:alpine

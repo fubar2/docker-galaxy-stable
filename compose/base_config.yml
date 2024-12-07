@@ -1,6 +1,6 @@
 galaxy_uwsgi:
   socket: :5555
-  buffer-size: 16384
+  buffer-size: 65535
   processes: 1
   threads: 4
   offload-threads: 2

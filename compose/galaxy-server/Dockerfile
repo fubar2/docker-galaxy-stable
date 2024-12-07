@@ -33,7 +33,7 @@ RUN groupadd -r $GALAXY_USER -g $GALAXY_GID \
 
 FROM build_base as build_miniconda
 COPY ./files/common_cleanup.sh /usr/bin/common_cleanup.sh
-# Install Miniconda
+# Install Miniconda https://repo.anaconda.com/miniconda/Miniconda3-py38_4.9.2-Linux-x86_64.sh
 RUN curl -s -L "https://repo.anaconda.com/miniconda/Miniconda3-${MINICONDA_VERSION}-Linux-x86_64.sh" > ~/miniconda.sh \
     && /bin/bash ~/miniconda.sh -b -p $GALAXY_CONDA_PREFIX \
     && rm ~/miniconda.sh \
@@ -121,7 +121,7 @@ RUN apt update && apt install --no-install-recommends curl gcc gnupg2 libgomp1 l
 RUN usermod -aG docker $GALAXY_USER
 
 # Make Python3 standard
-RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 9 
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 9
 
 COPY --chown=$GALAXY_USER:$GALAXY_USER --from=build_galaxy ${GALAXY_ROOT} ${GALAXY_ROOT}
 COPY --chown=$GALAXY_USER:$GALAXY_USER --from=build_miniconda ${GALAXY_CONFIG_TOOL_DEPENDENCY_DIR} ${GALAXY_CONFIG_TOOL_DEPENDENCY_DIR}

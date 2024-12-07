@@ -9,8 +9,8 @@ import subprocess
 if len( sys.argv ) == 2:
     PG_DATA_DIR_DEFAULT = sys.argv[1]
 else:
-    PG_DATA_DIR_DEFAULT = "/var/lib/postgresql/9.3/main"
-PG_DATA_DIR_HOST = os.environ.get("PG_DATA_DIR_HOST", "/export/postgresql/9.3/main/")
+    PG_DATA_DIR_DEFAULT = "/var/lib/postgresql/14/main"
+PG_DATA_DIR_HOST = os.environ.get("PG_DATA_DIR_HOST", "/export/postgresql/14/main/")
 
 def change_path( src ):
     """
@@ -166,3 +166,9 @@ if __name__ == "__main__":
         subprocess.call('chown -R postgres:postgres /export/postgresql/', shell=True)
         subprocess.call('chmod -R 0755 /export/', shell=True)
         subprocess.call('chmod -R 0700 %s' % PG_DATA_DIR_HOST, shell=True)
+
+    # change data_directory of PostgreSQL to the new location
+    # This is not strictly needed because we are starting postgresql with pointing to the data directory
+    new_data_directory = "'%s'" % PG_DATA_DIR_HOST
+    cmd = 'sed -i "s|data_directory = .*|data_directory = %s|g" %s' % (new_data_directory, PG_CONF)
+    subprocess.call(cmd, shell=True)

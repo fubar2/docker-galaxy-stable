@@ -1,6 +1,11 @@
 ---
-
+# oy. override ansible-galaxy defaults - had to include the get galaxy version function in main or it fails
+galaxy_virtual_env: /galaxy_venv
 groot: /galaxy-central
+galaxy_root: "{{ groot }}"
+galaxy_user: galaxy
+galaxy_config_dir: "{{ galaxy_root }}/config"
+galaxy_manage_cleanup: no
 galaxy_manage_clone: false
 galaxy_manage_download: false
 galaxy_manage_existing: true
@@ -9,21 +14,19 @@ galaxy_create_user: false
 galaxy_create_privsep_user: false
 galaxy_manage_paths: false
 galaxy_manage_static_setup: false
-galaxy_fetch_dependencies: false
+galaxy_fetch_dependencies: true
 galaxy_manage_mutable_setup: false
 galaxy_server_dir: "{{ groot }}"
-galaxy_virtual_env: /galaxy_venv
+galaxy_venv_dir: "{{ galaxy_virtual_env }}"
 galaxy_manage_gravity: true
 galaxy_manage_systemd: true
 galaxy_systemd_mode: gravity
 galaxy_manage_systemd_reports: false
 galaxy_manage_errordocs: false
-galaxy_build_client: false
-galaxy_venv_dir: /galaxy_venv # used in the galaxyproject.galaxy playbook. Sure to be a really good reason.
+galaxy_build_client: true
 galaxy_config_file: /etc/galaxy/galaxy.yml
-galaxy_manage_database: false
-galaxy_gravity_state_dir: "{{ groot }}/database/gravity"
-galaxy_additional_venv_packages: [gravity==0.36.1]
+galaxy_gravity_state_dir: "{{ galaxy_root }}/database/gravity"
+galaxy_additional_venv_packages: [gravity, sqlalchemy]
 # this sets the installation destination
 REL: "release_23.0"
 GALZIP: "https://github.com/galaxyproject/galaxy/archive/refs/heads/{{ REL }}.zip"
@@ -43,13 +46,10 @@ postgresql_objects_databases:
 postgresql_backup_dir: "{{ groot }}/data/backups"
 postgresql_backup_local_dir: "{{ '~postgres' | expanduser }}/backups"
 
-galaxy_root: "{{ groot }}"
-galaxy_user: galaxy
-galaxy_config_dir: "{{ galaxy_root }}/config"
 miniconda_prefix: "{{ galaxy_root }}/database/dependencies/_conda"
 miniconda_version: 4.7.12
 miniconda_manage_dependencies: false
-galaxy_config_perms: 0640
+
 
 
 

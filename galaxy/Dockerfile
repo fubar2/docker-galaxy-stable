@@ -131,7 +131,6 @@ RUN mkdir -p /var/cache/apt/archives/partial \
     && wget https://github.com/galaxyproject/galaxy/archive/refs/heads/$GALAXY_RELEASE.zip \
     && unzip $GALAXY_RELEASE.zip \
     && mv  galaxy-$GALAXY_RELEASE $GALAXY_ROOT \
-    && cp $GALAXY_ROOT/config/galaxy.yml.sample /etc/galaxy/galaxy.yml \
     && PATH=$GALAXY_CONDA_PREFIX/bin/:$PATH \
     && python3 -m venv $GALAXY_VIRTUAL_ENV \
     && . $GALAXY_VIRTUAL_ENV/bin/activate \
@@ -154,6 +153,7 @@ RUN mkdir -p /var/cache/apt/archives/partial \
 
 ADD ./reports_wsgi.ini.sample $GALAXY_CONFIG_DIR/reports_wsgi.ini
 ADD sample_tool_list.yaml $GALAXY_HOME/ephemeris/sample_tool_list.yaml
+ADD galaxy_tf_overlay/config/galaxy.yml /etc/galaxy/galaxy.yml
 ADD galaxy_tf_overlay/local /galaxy-central/local
 ADD galaxy_tf_overlay/local_tools /galaxy-central/local_tools
 ADD galaxy_tf_overlay/scripts/* /galaxy-central/scripts/
@@ -169,7 +169,6 @@ ADD tfpg/ /ansible/tfpg/
 # use https://github.com/krallin/tini/ as tiny but valid init and PID 1
 ADD https://github.com/krallin/tini/releases/download/v0.19.0/tini /sbin/tini
 
-
 RUN chmod +x /sbin/tini \
     && mkdir -p /shed_tools $EXPORT_DIR/ftp/ \
     && mkdir -p $GALAXY_CONFIG_TOOL_DEPENDENCY_DIR \
@@ -180,7 +179,7 @@ RUN chmod +x /sbin/tini \
     && apt update -qq && apt install -y ansible g++ make python3-pkg-resources unzip tar gpg dirmngr\
     && . $GALAXY_VIRTUAL_ENV/bin/activate \
     && pip install WeasyPrint wheel  \
-    && pip install -U bioblend ephemeris \
+    && pip install -U bioblend ephemeris gravity \
     # see if apt works 'cos this don't :( && /usr/bin/ansible-playbook /ansible/postgresql_provision.yml \
     && . $GALAXY_VIRTUAL_ENV/bin/activate \
     && service postgresql stop \
@@ -251,7 +250,9 @@ ENV SUPERVISOR_POSTGRES_AUTOSTART=True \
     SUPERVISOR_MANAGE_SLURM=True \
     HOST_DOCKER_LEGACY= \
     GALAXY_EXTRAS_CONFIG_POSTGRES=True \
-    STARTUP_EXPORT_USER_FILES=True
+    STARTUP_EXPORT_USER_FILES=True  \
+    GALAXY_ROOT_DIR=$GALAXY_ROOT
+
 
 ENTRYPOINT ["/sbin/tini", "--"]
 

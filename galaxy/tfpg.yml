@@ -51,6 +51,4 @@
     - role: uchida.miniconda
       become: true
       become_user: "{{ galaxy_user }}"
-    - role: galaxyproject.galaxy
-      become: true
-      become_user: "{{ galaxy_user }}"
+    - role: ansible.galaxy
